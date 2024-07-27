@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+  body{
+    margin: 0;
+  }
+
+ .search-container {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.dropdown {
+    margin-right: 10px;
+}
+
+.dropdown select {
+    border: 1px solid #ddd;
+    padding: 5px;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.icons {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: 5px;
+    font-size: 20px;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.icon-btn:hover {
+    color: #007bff;
+}
+
+/* Font Awesome styles */
+.fa {
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+}
+
+
+.dropdown1 {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown1 .dropbtn {
+    background-color: #e6e7e9;
+    color: rgb(32, 31, 31);
+    padding: 6px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown1-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown1-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown1-content a:hover {background-color: #ddd;}
+
+.dropdown1:hover .dropdown1-content {
+    display: block;
+}
+
+.dropdown1:hover .dropbtn {
+    background-color: #c8cec9;
+}
+
+.sidebar {
+    position: fixed;
+    top: 20;
+    left: 0;
+    height: 100%;
+    width: 60px;
+    background-color: #333;
+    color: #fff;
+    overflow-x: hidden;
+    transition: width 0.3s;
+}
+
+.sidebar:hover {
+    width: 200px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    padding: 10px;
+}
+
+.sidebar ul li a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+}
+
+.sidebar ul li i {
+    margin-right: 10px;
+}
+
+.sidebar-text {
+    display: none;
+}
+
+.sidebar:hover .sidebar-text {
+    display: inline;
+}
+
+.insight-section {
+    background-color: #f4f4f4;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.insight-section .container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.insight-icon {
+    font-size: 50px;
+    color: #007bff;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 28px;
+    color: #333;
+    margin: 0 0 10px;
+}
+
+p {
+    font-size: 16px;
+    color: #666;
+    margin: 0 0 20px;
+}
+
+.search-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-bar input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    width: 300px;
+    margin-right: 10px;
+}
+
+.search-bar button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.search-bar button i {
+    margin-right: 5px;
+}
+
+.search-bar button:hover {
+    background-color: #0056b3;
+}
+
+
+.latest-updates {
+    padding: 40px 20px;
+    text-align: center;
+    background-color: #f4f4f4;
+}
+
+.latest-updates h4 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.slider-container {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.slide {
+    min-width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.slide img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.slide p {
+    font-size: 16px;
+    color: #666;
+    margin: 0;
+}
+
+/* Add some basic styling for slider controls if needed */
+.slider-controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+.slider-controls button {
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.slider-controls button:hover {
+    background-color: #0056b3;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <nav style="background-color: cornflowerblue; display: flex;">
+            <div style="font-size: 24px; color: #ddd; padding: 10px;" class="logo">GDA GKP Property</div>
+            <div class="search-container">
+                <div class="dropdown">
+                    <select name="search-type" id="search-type">
+                        <option value="buy">Buy</option>
+                        <option value="rent">Rent</option>
+                        <option value="pg">PG</option>
+                        <!-- Add more options as needed -->
+                    </select>
+                </div>
+                <input type="text" placeholder="Enter place/locality/landmark/project/society">
+                <div class="icons">
+                    <button class="icon-btn"><i class="fa fa-map-marker" aria-hidden="true"></i></button>
+                    <button class="icon-btn"><i class="fa fa-microphone" aria-hidden="true"></i></button>
+                    <button class="icon-btn"><i class="fa fa-search" aria-hidden="true"></i></button>
+                </div>
+            </div>
+
+            <div style="padding: 5px; display: flex; gap: 5px;">
+                <button style="padding: 0px 20px; border-radius: 10px;">Post property<img style="width: 38px; padding-left: 10px;" src="https://pnghq.com/wp-content/uploads/download-free-free-png-photo-images-and-clipart-28353.png" alt=""></button>
+                <div class="dropdown2">
+                    <button style="border-radius: 50%;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-headset" viewBox="0 0 16 16">
+                        <path d="M8 1a5 5 0 0 0-5 5v1h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a6 6 0 1 1 12 0v6a2.5 2.5 0 0 1-2.5 2.5H9.366a1 1 0 0 1-.866.5h-1a1 1 0 1 1 0-2h1a1 1 0 0 1 .866.5H11.5A1.5 1.5 0 0 0 13 12h-1a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h1V6a5 5 0 0 0-5-5"/>
+                    </svg></button>
+                    <div class="dropdown2-content">
+                       <a href="">CONTACT US</a> 
+                    </div>
+                    <div></div>
+                    <div></div>
+                </div>
+              
+                <div class="dropdown1">
+                    <button class="dropbtn" style="border-radius: 50%;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                        <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
+                      </svg></button>
+                      <span style="background-color: red; height: 6px; width: 6px; border-radius: 50%; display:inline-block; margin-bottom: 10px; padding-right: 5px;" class="dot"></span>
+                      <svg style="color: white;" class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M1.5 6.5L8 13l6.5-6.5h-13z"/>
+                    </svg>
+                      <div class="dropdown1-content">
+                        <a href="">LOGIN/REGISTER</a>
+                        <div>
+                            <a style="font-size: 12px;" href="">MY ACTIVITY</a>
+                            <div style="padding-top: -35px;">
+                                <a  href="#">Recently Viewed</a>
+                                <a href="#">Recently Searched</a>
+                                <a href="#">Sortlisted</a> 
+                                <a href="#">Contacted</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+<!-- sidebar -->
+    <div class="sidebar">
+        <ul>
+            <li>
+                <a href="#">
+                    <i class="fa fa-lightbulb"></i>
+                    <span class="sidebar-text">Insights</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-search"></i>
+                    <span class="sidebar-text">Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-heart"></i>
+                    <span class="sidebar-text">Favorites</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-user"></i>
+                    <span class="sidebar-text">Profile</span>
+                </a>
+            </li>
+            <!-- Add more items as needed -->
+        </ul>
+    </div>
+
+    <!-- insight -->
+    <section class="insight-section">
+        <div class="container">
+            <div class="insight-icon">
+                <i class="fa fa-lightbulb"></i> <!-- Replace with your insight icon -->
+            </div>
+            <h2>Discover Best Places to Live!</h2>
+            <p>Understand localities, check property rates, reviews, transaction prices & more</p>
+            <div class="search-bar">
+                <input type="text" placeholder="Enter place/locality/landmark/project/society">
+                <button type="button"><i class="fa fa-search"></i> Search Insight</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- latest updates -->
+        <section class="latest-updates">
+            <h4>Latest Updates for You</h4>
+            <div class="slider-container">
+                <div class="slider">
+                    <div class="slide">
+                        <img src="" alt="Update 3">
+                        <p>Update 3</p>
+                    </div>
+                     <div class="slide">
+                        <img src="" alt="Update 1">
+                        <p>Update 1</p>
+                    </div>
+                    <div class="slide">
+                        <img src="" alt="Update 3">
+                        <p>Update 3</p>
+                    </div>
+                </div>
+            </div>
+        </section>    
+
+        <script>
+            // script.js
+document.addEventListener('DOMContentLoaded', () => {
+    const slider = document.querySelector('.slider');
+    const slides = document.querySelectorAll('.slide');
+    const slideCount = slides.length;
+    let index = 0;
+
+    function showSlide(n) {
+        index = (n + slideCount) % slideCount;
+        slider.style.transform = `translateX(${-index * 100}%)`;
+    }
+
+    // Automatic slide transition
+    setInterval(() => {
+        showSlide(index + 1);
+    }, 3000); // Change slide every 3 seconds
+
+    // Add controls if needed
+    const prevBtn = document.createElement('button');
+    prevBtn.textContent = '<';
+    prevBtn.className = 'prev';
+    prevBtn.addEventListener('click', () => showSlide(index - 1));
+
+    const nextBtn = document.createElement('button');
+    nextBtn.textContent = '>';
+    nextBtn.className = 'next';
+    nextBtn.addEventListener('click', () => showSlide(index + 1));
+
+    const controls = document.createElement('div');
+    controls.className = 'slider-controls';
+    controls.appendChild(prevBtn);
+    controls.appendChild(nextBtn);
+
+    document.querySelector('.slider-container').appendChild(controls);
+});
+
+        </script>
+</body>
+</html>
